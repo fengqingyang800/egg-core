@@ -346,7 +346,7 @@ describe('test/loader/mixin/load_controller.test.js', () => {
       app.loader.loadController({
         directory: path.join(baseDir, 'app/other-controller'),
       });
-      app[Symbol.for('EggCore#startBoot')]();
+      app.boot();
       return app.ready();
     });
     after(() => app.close());
