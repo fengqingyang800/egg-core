@@ -93,7 +93,7 @@ describe('test/egg.test.js', () => {
       app = utils.createApp('app-getter');
       app.loader.loadPlugin();
       app.loader.loadConfig();
-      app.boot();
+      app.loader.loadCustomApp();
       return app.ready();
     });
     after(() => app.close());
@@ -470,7 +470,6 @@ describe('test/egg.test.js', () => {
         app.loader.loadMiddleware();
         app.loader.loadController();
         app.loader.loadRouter();
-        app.boot();
         yield app.ready();
 
         const json = app.timing.toJSON();
@@ -525,7 +524,6 @@ describe('test/egg.test.js', () => {
         app.loader.loadConfig();
         app.loader.loadApplicationExtend();
         app.loader.loadCustomAgent();
-        app.boot();
         yield app.ready();
 
         const json = app.timing.toJSON();
@@ -629,7 +627,6 @@ describe('test/egg.test.js', () => {
           app.loader.loadConfig();
           app.loader.loadAgentExtend();
           app.loader.loadCustomAgent();
-          app.boot();
           assert.deepStrictEqual(
             app.bootLog,
             [

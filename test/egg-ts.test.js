@@ -32,13 +32,12 @@ describe('test/egg-ts.test.js', () => {
         app.loader.loadResponseExtend();
         app.loader.loadContextExtend();
         app.loader.loadHelperExtend();
+        app.loader.loadCustomApp();
         app.loader.loadService();
         app.loader.loadController();
         app.loader.loadRouter();
         app.loader.loadPlugin();
         app.loader.loadMiddleware();
-        app.loader.loadCustomApp();
-        app.boot();
 
         await request(app.callback())
           .get('/')
@@ -73,13 +72,12 @@ describe('test/egg-ts.test.js', () => {
         app.loader.loadResponseExtend();
         app.loader.loadContextExtend();
         app.loader.loadHelperExtend();
+        app.loader.loadCustomAgent();
         app.loader.loadService();
         app.loader.loadController();
         app.loader.loadRouter();
         app.loader.loadPlugin();
         app.loader.loadMiddleware();
-        app.loader.loadCustomAgent();
-        app.boot();
 
         await request(app.callback())
           .get('/')
